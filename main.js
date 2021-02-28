@@ -22,17 +22,11 @@ function solution (A, B, K) {
         throw new Error('The third param must be between [1...2000000000]');
     }
 
-    // if (B - A == 0) {
-    //     return 0;
-    // }
-
     let divCounter = 0;
     let firstNumber = A;
     let C = A;
     while (C <= B) {
-        console.log(C)
         if (C % K == 0) {
-            console.log("dentro do if")
             firstNumber = C;
             divCounter++;
             break;
@@ -41,18 +35,11 @@ function solution (A, B, K) {
     }
 
     const diff = B - firstNumber;
-    console.log(diff, "diff")
     if (diff > 1) {
         const extra = diff % K;
         const extraCount = (diff - extra) / K;
         divCounter += extraCount; 
     }
-
-    // for (let i = 0; i <= B - A; i++) {
-    //     if ((A + i) % K == 0) {
-    //         divCounter++;
-    //     } 
-    // }
 
     return divCounter;
 
